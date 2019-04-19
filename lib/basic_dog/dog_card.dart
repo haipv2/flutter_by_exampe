@@ -85,6 +85,7 @@ class _DogCardState extends State<DogCard> {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: NetworkImage(renderUrl ?? ''),
+//              image: ImageProvider<>(),
             ),
           ),
         ));
