@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_example/login_flow_boiler/app_state_container.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class AuthScreen extends StatefulWidget {
   @override
   AuthScreenState createState() {
@@ -10,7 +12,8 @@ class AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-
+    // Get access to the AppState
+    final container = AppStateContainer.of(context);
     return new Container(
       width: width,
       child: new Column(
@@ -18,7 +21,7 @@ class AuthScreenState extends State<AuthScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           new RaisedButton(
-            onPressed: () => print('Log in!'),
+            onPressed: () => container.logIntoFirebase(),
             color: Colors.white,
             child: new Container(
               width: 230.0,
